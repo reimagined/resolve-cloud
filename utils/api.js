@@ -86,6 +86,7 @@ const removeApp = async payload => post('reset', payload)
  * @returns {Promise<String>}
  */
 const deploymentLogs = async payload => get('logs', payload)
+const truncateLogs = async payload => get('logs-truncate', payload)
 
 /**
  * @param {String} payload.app.name
@@ -111,6 +112,7 @@ module.exports = {
   commitDeploy,
   removeApp,
   deploymentLogs,
+  truncateLogs,
   addSecret,
   deleteSecret,
   deployments,

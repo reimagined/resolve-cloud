@@ -8,6 +8,7 @@ const {
   remove,
   login,
   logs,
+  truncateLogs,
   addSecret,
   deleteSecret,
   deployments,
@@ -53,6 +54,15 @@ cli
     const app = await getAppPackage()
     await refreshToken()
     await logs(app, cmd, options)
+  })
+
+cli
+  .command('logs-truncate [applicationName]')
+  .description('Deletes all logs')
+  .action(async cmd => {
+    const app = await getAppPackage()
+    await refreshToken()
+    await truncateLogs(app, cmd)
   })
 
 cli
